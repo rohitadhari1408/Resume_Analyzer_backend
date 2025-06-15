@@ -2,6 +2,14 @@ import pdfParse from "pdf-parse";
 import mammoth from "mammoth";
 
 const extractTextFromResume = async (fileBuffer, fileType) => {
+
+  if (process.env.NODE_ENV !== 'production') {
+  const fs = require('fs');
+  const pdfParse = require('pdf-parse');
+  const dataBuffer = fs.readFileSync('./test/data/05-versions-space.pdf');
+  pdfParse(dataBuffer).then(data => console.log(data.text));
+}
+
   try {
     if (fileType === "application/pdf") {
       const pdfData = await pdfParse(fileBuffer); // ✅ Use Buffer directly
