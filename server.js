@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import express from "express";
 import cors from "cors";
-import connectDB from "./config/db.js"; 
-import authRoutes from "./routes/auth.js"; 
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/auth.js";
 import userRoutes from './routes/user.js';
 import ResumeRoutes from './routes/resume.js';
 import AdminRoutes from './routes/admin.js'
@@ -25,9 +25,9 @@ app.get("/", (req, res) => {
 
 // Use auth routes
 app.use('/auth', authRoutes);
-app.use('/user', userRoutes); 
+app.use('/user', userRoutes);
 
-app.use('/resume', ResumeRoutes); 
-app.use('/admin', AdminRoutes); 
+app.use('/resume', ResumeRoutes);
+app.use('/admin', AdminRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
