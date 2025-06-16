@@ -19,7 +19,9 @@ const PORT = process.env.PORT || 5001;
 
 const allowedOrigins = [
   "https://resume-analyzer-frontend-red.vercel.app", // ✅ Your deployed frontend
-  "http://localhost:5173" // ✅ For local dev (optional)
+  "http://localhost:5173",
+  "https://resume-analyzer-frontend-git-main-rohitadharis-projects.vercel.app/",
+  "https://resume-analyzer-frontend-ckud5n10z-rohitadharis-projects.vercel.app/" // ✅ For local dev (optional)
 ];
 
 app.use(cors({
