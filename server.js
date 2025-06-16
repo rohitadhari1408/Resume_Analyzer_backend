@@ -5,29 +5,34 @@ import connectDB from "./src/config/db.js";
 import authRoutes from "./src/routes/auth.js";
 import userRoutes from './src/routes/user.js';
 import ResumeRoutes from './src/routes/resume.js';
-import AdminRoutes from './src/routes/admin.js'
+import AdminRoutes from './src/routes/admin.js';
 
 const app = express();
-app.use(cors());
-const PORT = process.env.PORT ||5001;
+const PORT = process.env.PORT || 5001;
+// app.use(cors());
 
-// Middleware
+// ✅ Enable CORS for your frontend domain(s)
+app.use(cors({
+  origin: ['https://resume-analyzer-frontend-red.vercel.app/'], // 🔁 Replace with your frontend URL
+  credentials: true
+}));
+
+// ✅ Middleware
 app.use(express.json());
-app.use(cors());
 
-connectDB(); // ✅ Ensure this is called
+// ✅ Connect to MongoDB
+connectDB();
 
-
-// Sample route
+// ✅ Sample route
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// Use auth routes
+// ✅ Routes
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
-
 app.use('/resume', ResumeRoutes);
 app.use('/admin', AdminRoutes);
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// ✅ Start server
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
