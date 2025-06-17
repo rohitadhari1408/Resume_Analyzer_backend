@@ -9,7 +9,7 @@ import AdminRoutes from './src/routes/admin.js';
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-// app.use(cors());
+app.use(cors());
 
 // ✅ Enable CORS for your frontend domain(s)
 // app.use(cors({
@@ -17,17 +17,17 @@ const PORT = process.env.PORT || 5001;
 //   credentials: true
 // }));
 
-const allowedOrigins = [
-  "https://resume-analyzer-frontend-red.vercel.app", // ✅ Your deployed frontend
-  "http://localhost:5173",
-  "https://resume-analyzer-frontend-git-main-rohitadharis-projects.vercel.app/",
-  "https://resume-analyzer-frontend-ckud5n10z-rohitadharis-projects.vercel.app/" // ✅ For local dev (optional)
-];
+// const allowedOrigins = [
+//   "https://resume-analyzer-frontend-red.vercel.app", // ✅ Your deployed frontend
+//   "http://localhost:5173",
+//   "https://resume-analyzer-frontend-git-main-rohitadharis-projects.vercel.app/",
+//   "https://resume-analyzer-frontend-ckud5n10z-rohitadharis-projects.vercel.app/" // ✅ For local dev (optional)
+// ];
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
+// app.use(cors({
+//   origin: allowedOrigins,
+//   credentials: true
+// }));
 
 // ✅ Middleware
 app.use(express.json());

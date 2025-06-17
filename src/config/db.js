@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 import { GridFSBucket } from "mongodb";
+import { configDotenv } from "dotenv";
 
-const mongoURI = "mongodb+srv://SjtuPEgLLQ3lWo3f:rohit1408@resumeai.lwq8l.mongodb.net/ResumeAi?retryWrites=true&w=majority&appName=ResumeAi; // Update as needed";
+configDotenv();
+
+const mongoURI = process.env.MONGO_URI;
 
 const connectDB = async () => {
   try {
